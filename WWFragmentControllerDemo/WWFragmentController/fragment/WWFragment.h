@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  WWFragment.h
 //  WWFragmentControllerDemo
 //
 //  Created by wuruizhi on 2017/3/21.
@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface WWFragment : UIViewController
 
+
+/**
+ *  将要显示fragment，子类可继承实现
+ */
+- (void)willShowFragment;
 
 @end
-

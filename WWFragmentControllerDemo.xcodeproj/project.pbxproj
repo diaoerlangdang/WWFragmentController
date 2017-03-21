@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		E94855431E80F8A50000BCD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855421E80F8A50000BCD3 /* main.m */; };
 		E94855461E80F8A50000BCD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855451E80F8A50000BCD3 /* AppDelegate.m */; };
-		E94855491E80F8A50000BCD3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855481E80F8A50000BCD3 /* ViewController.m */; };
 		E948554C1E80F8A50000BCD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E948554A1E80F8A50000BCD3 /* Main.storyboard */; };
 		E948554E1E80F8A50000BCD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E948554D1E80F8A50000BCD3 /* Assets.xcassets */; };
 		E94855511E80F8A50000BCD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E948554F1E80F8A50000BCD3 /* LaunchScreen.storyboard */; };
+		E948555D1E80F9D60000BCD3 /* WWFragmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E948555C1E80F9D60000BCD3 /* WWFragmentController.m */; };
+		E94855601E80FA6A0000BCD3 /* WWFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = E948555F1E80FA6A0000BCD3 /* WWFragment.m */; };
+		E94855631E8103590000BCD3 /* FragmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855621E8103590000BCD3 /* FragmentController.m */; };
+		E94855661E81039D0000BCD3 /* FragmentOne.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855651E81039D0000BCD3 /* FragmentOne.m */; };
+		E94855691E8103B00000BCD3 /* FragmentTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855681E8103B00000BCD3 /* FragmentTwo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +24,20 @@
 		E94855421E80F8A50000BCD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E94855441E80F8A50000BCD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E94855451E80F8A50000BCD3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E94855471E80F8A50000BCD3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E94855481E80F8A50000BCD3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E948554B1E80F8A50000BCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E948554D1E80F8A50000BCD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E94855501E80F8A50000BCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E94855521E80F8A50000BCD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E948555B1E80F9D60000BCD3 /* WWFragmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWFragmentController.h; sourceTree = "<group>"; };
+		E948555C1E80F9D60000BCD3 /* WWFragmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWFragmentController.m; sourceTree = "<group>"; };
+		E948555E1E80FA6A0000BCD3 /* WWFragment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWFragment.h; sourceTree = "<group>"; };
+		E948555F1E80FA6A0000BCD3 /* WWFragment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWFragment.m; sourceTree = "<group>"; };
+		E94855611E8103590000BCD3 /* FragmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FragmentController.h; sourceTree = "<group>"; };
+		E94855621E8103590000BCD3 /* FragmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FragmentController.m; sourceTree = "<group>"; };
+		E94855641E81039D0000BCD3 /* FragmentOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FragmentOne.h; sourceTree = "<group>"; };
+		E94855651E81039D0000BCD3 /* FragmentOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FragmentOne.m; sourceTree = "<group>"; };
+		E94855671E8103B00000BCD3 /* FragmentTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FragmentTwo.h; sourceTree = "<group>"; };
+		E94855681E8103B00000BCD3 /* FragmentTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FragmentTwo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +70,19 @@
 		E94855401E80F8A50000BCD3 /* WWFragmentControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E94855581E80F8E70000BCD3 /* WWFragmentController */,
 				E94855441E80F8A50000BCD3 /* AppDelegate.h */,
 				E94855451E80F8A50000BCD3 /* AppDelegate.m */,
-				E94855471E80F8A50000BCD3 /* ViewController.h */,
-				E94855481E80F8A50000BCD3 /* ViewController.m */,
 				E948554A1E80F8A50000BCD3 /* Main.storyboard */,
 				E948554D1E80F8A50000BCD3 /* Assets.xcassets */,
 				E948554F1E80F8A50000BCD3 /* LaunchScreen.storyboard */,
 				E94855521E80F8A50000BCD3 /* Info.plist */,
+				E94855611E8103590000BCD3 /* FragmentController.h */,
+				E94855621E8103590000BCD3 /* FragmentController.m */,
+				E94855641E81039D0000BCD3 /* FragmentOne.h */,
+				E94855651E81039D0000BCD3 /* FragmentOne.m */,
+				E94855671E8103B00000BCD3 /* FragmentTwo.h */,
+				E94855681E8103B00000BCD3 /* FragmentTwo.m */,
 				E94855411E80F8A50000BCD3 /* Supporting Files */,
 			);
 			path = WWFragmentControllerDemo;
@@ -77,6 +94,33 @@
 				E94855421E80F8A50000BCD3 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E94855581E80F8E70000BCD3 /* WWFragmentController */ = {
+			isa = PBXGroup;
+			children = (
+				E94855591E80F8E70000BCD3 /* controller */,
+				E948555A1E80F8E70000BCD3 /* fragment */,
+			);
+			path = WWFragmentController;
+			sourceTree = "<group>";
+		};
+		E94855591E80F8E70000BCD3 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				E948555B1E80F9D60000BCD3 /* WWFragmentController.h */,
+				E948555C1E80F9D60000BCD3 /* WWFragmentController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		E948555A1E80F8E70000BCD3 /* fragment */ = {
+			isa = PBXGroup;
+			children = (
+				E948555E1E80FA6A0000BCD3 /* WWFragment.h */,
+				E948555F1E80FA6A0000BCD3 /* WWFragment.m */,
+			);
+			path = fragment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,9 +195,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E94855491E80F8A50000BCD3 /* ViewController.m in Sources */,
+				E94855601E80FA6A0000BCD3 /* WWFragment.m in Sources */,
+				E94855631E8103590000BCD3 /* FragmentController.m in Sources */,
+				E94855691E8103B00000BCD3 /* FragmentTwo.m in Sources */,
+				E94855661E81039D0000BCD3 /* FragmentOne.m in Sources */,
 				E94855461E80F8A50000BCD3 /* AppDelegate.m in Sources */,
 				E94855431E80F8A50000BCD3 /* main.m in Sources */,
+				E948555D1E80F9D60000BCD3 /* WWFragmentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
