@@ -1,6 +1,7 @@
 # WWFragmentController
 ##效果图
-![image](1.png=75x133) ![image](2.png=75x133)
+<img src="https://github.com/diaoerlangdang/WWFragmentController/blob/master/1.png" width=75 alt="one"/>
+<img src="https://github.com/diaoerlangdang/WWFragmentController/blob/master/2.png" width=75 alt="two"/>
 <br>
 <br>
 ##说明
