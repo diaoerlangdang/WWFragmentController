@@ -11,7 +11,11 @@
 #import "FragmentTwo.h"
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height-64
+
+#define BUTTON_HEIGHT   30
+
+#define FRAGMENT_HEIGHT SCREEN_HEIGHT-40
 
 @interface FragmentController ()
 {    
@@ -45,8 +49,8 @@
     [btn1 setTitleColor:[UIColor colorWithRed:0xC0/0xff green:0xC0/0xff blue:0xC0/0xff alpha:1] forState:UIControlStateNormal];
     [btn1 setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
     [btn1 sizeToFit];
-    btn1.frame = CGRectMake(0, 0, btn1.frame.size.width, 30);
-    btn1.center = CGPointMake(SCREEN_WIDTH/4, 30/2);
+    btn1.frame = CGRectMake(0, 0, btn1.frame.size.width, BUTTON_HEIGHT);
+    btn1.center = CGPointMake(SCREEN_WIDTH/4, BUTTON_HEIGHT/2);
     btn1.selected = true;
     [self.view addSubview:btn1];
     
@@ -56,8 +60,8 @@
     [btn2 setTitleColor:[UIColor colorWithRed:0xC0/0xff green:0xC0/0xff blue:0xC0/0xff alpha:1] forState:UIControlStateNormal];
     [btn2 setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
     [btn2 sizeToFit];
-    btn2.frame = CGRectMake(0, 0, btn2.frame.size.width, 30);
-    btn2.center = CGPointMake(SCREEN_WIDTH-SCREEN_WIDTH/4, 30/2);
+    btn2.frame = CGRectMake(0, 0, btn2.frame.size.width, BUTTON_HEIGHT);
+    btn2.center = CGPointMake(SCREEN_WIDTH-SCREEN_WIDTH/4, BUTTON_HEIGHT/2);
     btn2.selected = false;
     [self.view addSubview:btn2];
 }
@@ -65,10 +69,10 @@
 - (void)setFragments
 {
     FragmentOne *one = [[FragmentOne alloc] init];
-    [self addFragment:one frame:CGRectMake(0, 30, SCREEN_WIDTH, SCREEN_HEIGHT-30)];
+    [self addFragment:one frame:CGRectMake(0, 30, SCREEN_WIDTH, FRAGMENT_HEIGHT)];
     
     FragmentTwo *two = [[FragmentTwo alloc] init];
-    [self addFragment:two frame:CGRectMake(0, 30, SCREEN_WIDTH, SCREEN_HEIGHT-30)];
+    [self addFragment:two frame:CGRectMake(0, 30, SCREEN_WIDTH, FRAGMENT_HEIGHT)];
 }
 
 - (void)btn1Click:(UIButton *)button

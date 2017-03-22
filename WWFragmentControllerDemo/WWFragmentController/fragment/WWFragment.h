@@ -16,4 +16,9 @@
  */
 - (void)willShowFragment;
 
+/**
+ *  将要隐藏fragment，子类可继承实现
+ */
+- (void)willHideFragment;
+
 @end

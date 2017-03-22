@@ -62,6 +62,22 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (_currentIndex >= 0 && _fragmentArray.count>_currentIndex) {
+        [_fragmentArray[_currentIndex] willShowFragment];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (_currentIndex >= 0 && _fragmentArray.count>_currentIndex) {
+        [_fragmentArray[_currentIndex] willHideFragment];
+    }
+}
+
 
 /**
  *  添加fragment,对应的index为fragmentArray的角标
@@ -71,17 +87,20 @@
  */
 - (void)addFragment:(WWFragment *)fragment frame:(CGRect)frame
 {
+    fragment.view.frame = frame;
+    
     //初始显示第一个fragment
     if (_fragmentArray.count == 0) {
         [self addChildViewController:fragment];
         [self.view addSubview:fragment.view];
+        //第一个视图差个nav bar的高度 ??
+        fragment.view.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height + 64);
+        [fragment didMoveToParentViewController:self];
+        
         _currentIndex = 0;
     }
-    fragment.view.frame = frame;
-    [fragment didMoveToParentViewController:self];
     
-    [_fragmentArray addObject:fragment];
-}
+    [_fragmentArray addObject:fragment];}
 
 /**
  *  移除fragment
@@ -127,12 +146,35 @@
         return;
     }
     
+    //将要隐藏的fragment
+    [_fragmentArray[_currentIndex] willHideFragment];
+    
     //将要显示的fragment
     [_fragmentArray[newFragmentIndex] willShowFragment];
     
+    
     [self addChildViewController:_fragmentArray[newFragmentIndex]];
     
-    [self transitionFromViewController:_fragmentArray[_currentIndex] toViewController:_fragmentArray[newFragmentIndex] duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil completion:^(BOOL finished) {
+    if (newFragmentIndex>_currentIndex) {
+        [self setFrame:_fragmentArray[newFragmentIndex] x:_fragmentArray[newFragmentIndex].view.frame.size.width];
+    }
+    else {
+        [self setFrame:_fragmentArray[newFragmentIndex] x:-_fragmentArray[newFragmentIndex].view.frame.size.width];
+    }
+    
+    [self transitionFromViewController:_fragmentArray[_currentIndex] toViewController:_fragmentArray[newFragmentIndex] duration:0.3 options:UIViewAnimationOptionCurveLinear animations:^{
+        
+        [self setFrame:_fragmentArray[newFragmentIndex] x:0];
+        
+        if (newFragmentIndex>_currentIndex) {
+            [self setFrame:_fragmentArray[_currentIndex] x:-_fragmentArray[_currentIndex].view.frame.size.width];
+        }
+        else {
+            [self setFrame:_fragmentArray[_currentIndex] x:_fragmentArray[_currentIndex].view.frame.size.width];
+        }
+        
+        
+    }  completion:^(BOOL finished) {
         
         if (finished) {
             
@@ -149,6 +191,13 @@
         }
         
     }];
+}
+
+- (void)setFrame:(WWFragment *)fragment x:(CGFloat)x
+{
+    CGRect frame = fragment.view.frame;
+    frame.origin.x = x;
+    fragment.view.frame = frame;
 }
 
 

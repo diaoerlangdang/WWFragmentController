@@ -25,4 +25,9 @@
     NSLog(@"FragmentOne 将要显示");
 }
 
+- (void)willHideFragment
+{
+    NSLog(@"FragmentOne 将要隐藏");
+}
+
 @end
