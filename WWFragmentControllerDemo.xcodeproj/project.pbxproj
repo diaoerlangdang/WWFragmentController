@@ -17,6 +17,7 @@
 		E94855631E8103590000BCD3 /* FragmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855621E8103590000BCD3 /* FragmentController.m */; };
 		E94855661E81039D0000BCD3 /* FragmentOne.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855651E81039D0000BCD3 /* FragmentOne.m */; };
 		E94855691E8103B00000BCD3 /* FragmentTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855681E8103B00000BCD3 /* FragmentTwo.m */; };
+		E94855821E8266DD0000BCD3 /* VerticalFragmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E94855811E8266DD0000BCD3 /* VerticalFragmentController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		E94855651E81039D0000BCD3 /* FragmentOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FragmentOne.m; sourceTree = "<group>"; };
 		E94855671E8103B00000BCD3 /* FragmentTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FragmentTwo.h; sourceTree = "<group>"; };
 		E94855681E8103B00000BCD3 /* FragmentTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FragmentTwo.m; sourceTree = "<group>"; };
+		E94855801E8266DD0000BCD3 /* VerticalFragmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalFragmentController.h; sourceTree = "<group>"; };
+		E94855811E8266DD0000BCD3 /* VerticalFragmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalFragmentController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 				E94855521E80F8A50000BCD3 /* Info.plist */,
 				E94855611E8103590000BCD3 /* FragmentController.h */,
 				E94855621E8103590000BCD3 /* FragmentController.m */,
+				E94855801E8266DD0000BCD3 /* VerticalFragmentController.h */,
+				E94855811E8266DD0000BCD3 /* VerticalFragmentController.m */,
 				E94855641E81039D0000BCD3 /* FragmentOne.h */,
 				E94855651E81039D0000BCD3 /* FragmentOne.m */,
 				E94855671E8103B00000BCD3 /* FragmentTwo.h */,
@@ -196,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E94855601E80FA6A0000BCD3 /* WWFragment.m in Sources */,
+				E94855821E8266DD0000BCD3 /* VerticalFragmentController.m in Sources */,
 				E94855631E8103590000BCD3 /* FragmentController.m in Sources */,
 				E94855691E8103B00000BCD3 /* FragmentTwo.m in Sources */,
 				E94855661E81039D0000BCD3 /* FragmentOne.m in Sources */,
@@ -358,6 +364,7 @@
 				E94855571E80F8A50000BCD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

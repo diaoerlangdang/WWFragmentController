@@ -9,6 +9,8 @@
 #import "FragmentController.h"
 #import "FragmentOne.h"
 #import "FragmentTwo.h"
+#import "VerticalFragmentController.h"
+
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height-64
@@ -38,6 +40,14 @@
     [self setButtons];
     
     [self setFragments];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"左右" style:UIBarButtonItemStylePlain target:self action:@selector(nextExample)];
+}
+
+- (void)nextExample
+{
+    VerticalFragmentController *vc = [[VerticalFragmentController alloc] init];
+    [self.navigationController pushViewController:vc animated:true];
 }
 
 - (void)setButtons
@@ -68,11 +78,12 @@
 
 - (void)setFragments
 {
+    CGRect rect = CGRectMake(0, 30, SCREEN_WIDTH, FRAGMENT_HEIGHT);
     FragmentOne *one = [[FragmentOne alloc] init];
-    [self addFragment:one frame:CGRectMake(0, 30, SCREEN_WIDTH, FRAGMENT_HEIGHT)];
+    [self addFragment:one frame:rect];
     
     FragmentTwo *two = [[FragmentTwo alloc] init];
-    [self addFragment:two frame:CGRectMake(0, 30, SCREEN_WIDTH, FRAGMENT_HEIGHT)];
+    [self addFragment:two frame:rect];
 }
 
 - (void)btn1Click:(UIButton *)button
@@ -84,7 +95,7 @@
     btn1.selected = true;
     btn2.selected = false;
     
-    [self changeFragmentTo:0];
+    [self changeFragmentTo:0 animations:WWFragmentAnimationStyle_Horizontal];
 }
 
 - (void)btn2Click:(UIButton *)button
@@ -96,7 +107,7 @@
     btn1.selected = false;
     btn2.selected = true;
     
-    [self changeFragmentTo:1];
+    [self changeFragmentTo:1 animations:WWFragmentAnimationStyle_Horizontal];
 }
 
 @end

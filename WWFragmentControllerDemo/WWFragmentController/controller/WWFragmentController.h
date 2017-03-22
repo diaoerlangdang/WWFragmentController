@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "WWFragment.h"
 
+typedef enum : NSUInteger {
+    WWFragmentAnimationStyle_None,
+    WWFragmentAnimationStyle_Vertical,
+    WWFragmentAnimationStyle_Horizontal,
+} WWFragmentAnimationStyle;
+
 @interface WWFragmentController : UIViewController
 
 //fragment数组
@@ -43,8 +49,9 @@
 /**
  *  跳转到新的fragment
  *
- *  @param newFragmentIndex  要跳转的fragment的index
+ *  @param newFragmentIndex     要跳转的fragment的index
+ *  @param style                动画类型
  */
-- (void)changeFragmentTo:(int)newFragmentIndex;
+- (void)changeFragmentTo:(int)newFragmentIndex animations:(WWFragmentAnimationStyle)style;
 
 @end

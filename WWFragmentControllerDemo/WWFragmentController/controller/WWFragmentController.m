@@ -11,6 +11,7 @@
 @interface WWFragmentController ()
 {
     int _currentIndex;
+    WWFragmentAnimationStyle _animationStyle;
 }
 
 @end
@@ -53,6 +54,7 @@
 {
     _fragmentArray = [NSMutableArray array];
     _currentIndex = -1;
+    _animationStyle = WWFragmentAnimationStyle_None;
 }
 
 
@@ -137,9 +139,10 @@
 /**
  *  跳转到新的fragment
  *
- *  @param newFragmentIndex  要跳转的fragment的index
+ *  @param newFragmentIndex     要跳转的fragment的index
+ *  @param style                动画类型
  */
-- (void)changeFragmentTo:(int)newFragmentIndex
+- (void)changeFragmentTo:(int)newFragmentIndex animations:(WWFragmentAnimationStyle)style
 {
     //不执行跳转
     if (newFragmentIndex<0 || newFragmentIndex>=_fragmentArray.count || newFragmentIndex==_currentIndex) {
@@ -155,23 +158,15 @@
     
     [self addChildViewController:_fragmentArray[newFragmentIndex]];
     
-    if (newFragmentIndex>_currentIndex) {
-        [self setFrame:_fragmentArray[newFragmentIndex] x:_fragmentArray[newFragmentIndex].view.frame.size.width];
-    }
-    else {
-        [self setFrame:_fragmentArray[newFragmentIndex] x:-_fragmentArray[newFragmentIndex].view.frame.size.width];
-    }
+    _animationStyle = style;
+    
+    //开始动画
+    [self startAnimation:_currentIndex new:newFragmentIndex];
     
     [self transitionFromViewController:_fragmentArray[_currentIndex] toViewController:_fragmentArray[newFragmentIndex] duration:0.3 options:UIViewAnimationOptionCurveLinear animations:^{
         
-        [self setFrame:_fragmentArray[newFragmentIndex] x:0];
-        
-        if (newFragmentIndex>_currentIndex) {
-            [self setFrame:_fragmentArray[_currentIndex] x:-_fragmentArray[_currentIndex].view.frame.size.width];
-        }
-        else {
-            [self setFrame:_fragmentArray[_currentIndex] x:_fragmentArray[_currentIndex].view.frame.size.width];
-        }
+        //结束动画
+        [self stopAnimation:_currentIndex new:newFragmentIndex];
         
         
     }  completion:^(BOOL finished) {
@@ -193,10 +188,80 @@
     }];
 }
 
+//开始动画
+- (void)startAnimation:(int)oldIndex new:(int)newIndex
+{
+    switch (_animationStyle) {
+        case WWFragmentAnimationStyle_Vertical:
+            if (newIndex>oldIndex) {
+                [self setFrame:_fragmentArray[newIndex] y:_fragmentArray[newIndex].view.frame.size.height];
+            }
+            else {
+                [self setFrame:_fragmentArray[newIndex] y:-_fragmentArray[newIndex].view.frame.size.height];
+            }
+            
+            break;
+            
+        case WWFragmentAnimationStyle_Horizontal:
+            if (newIndex>oldIndex) {
+                [self setFrame:_fragmentArray[newIndex] x:_fragmentArray[newIndex].view.frame.size.width];
+            }
+            else {
+                [self setFrame:_fragmentArray[newIndex] x:-_fragmentArray[newIndex].view.frame.size.width];
+            }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+}
+
+//结束动画
+- (void)stopAnimation:(int)oldIndex new:(int)newIndex
+{
+    switch (_animationStyle) {
+        case WWFragmentAnimationStyle_Vertical:
+            [self setFrame:_fragmentArray[newIndex] y:_fragmentArray[oldIndex].view.frame.origin.y];
+            
+            if (newIndex>oldIndex) {
+                [self setFrame:_fragmentArray[oldIndex] y:-_fragmentArray[oldIndex].view.frame.size.height];
+            }
+            else {
+                [self setFrame:_fragmentArray[oldIndex] y:_fragmentArray[oldIndex].view.frame.size.height];
+            }
+            
+            break;
+            
+        case WWFragmentAnimationStyle_Horizontal:
+            [self setFrame:_fragmentArray[newIndex] x:_fragmentArray[oldIndex].view.frame.origin.x];
+            
+            if (newIndex>oldIndex) {
+                [self setFrame:_fragmentArray[oldIndex] x:-_fragmentArray[oldIndex].view.frame.size.width];
+            }
+            else {
+                [self setFrame:_fragmentArray[oldIndex] x:_fragmentArray[oldIndex].view.frame.size.width];
+            }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
 - (void)setFrame:(WWFragment *)fragment x:(CGFloat)x
 {
     CGRect frame = fragment.view.frame;
     frame.origin.x = x;
+    fragment.view.frame = frame;
+}
+
+- (void)setFrame:(WWFragment *)fragment y:(CGFloat)y
+{
+    CGRect frame = fragment.view.frame;
+    frame.origin.y = y;
     fragment.view.frame = frame;
 }
 
