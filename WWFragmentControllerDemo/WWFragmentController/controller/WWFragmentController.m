@@ -149,14 +149,13 @@
         return;
     }
     
+    [self addChildViewController:_fragmentArray[newFragmentIndex]];
+    
     //将要隐藏的fragment
     [_fragmentArray[_currentIndex] willHideFragment];
     
     //将要显示的fragment
     [_fragmentArray[newFragmentIndex] willShowFragment];
-    
-    
-    [self addChildViewController:_fragmentArray[newFragmentIndex]];
     
     _animationStyle = style;
     

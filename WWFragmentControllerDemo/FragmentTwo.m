@@ -19,9 +19,15 @@
     self.view.backgroundColor = [UIColor redColor];
 }
 
+- (void)rightClicked
+{
+    NSLog(@"two");
+}
+
 - (void)willShowFragment
 {
     NSLog(@"FragmentTwo 将要显示");
+    self.parentViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"测试" style:UIBarButtonItemStylePlain target:self action:@selector(rightClicked)];
 }
 
 - (void)willHideFragment
